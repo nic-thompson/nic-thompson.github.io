@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta property="og:title" content="Nicolas Thompson – ML Platform Engineer">
+<meta property="og:description"
+content="Designing event-driven telemetry pipelines, structured data platforms and inference-ready backend infrastructure on AWS.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nicolast.dev">
+
+<title>Nicolas Thompson | ML Platform Engineer</title>
+
+<meta name="description"
+content="Designing event-driven telemetry pipelines, structured data platforms and ML-ready infrastructure on AWS.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+
+<style>
+
+:root{
+--bg:#f8fafc;
+--card:#ffffff;
+--border:#e2e8f0;
+--text:#0f172a;
+--muted:#64748b;
+--accent:#6366f1;
+--accent2:#0ea5e9;
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+margin:0;
+font-family:Inter,system-ui;
+background:var(--bg);
+color:var(--text);
+line-height:1.65;
+}
+
+body:before{
+content:'';
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at 20% 10%,#e0f2fe,transparent 40%),
+radial-gradient(circle at 80% 20%,#ede9fe,transparent 40%),
+radial-gradient(circle at 40% 90%,#dbeafe,transparent 40%);
+opacity:.6;
+z-index:-1;
+}
+
+nav{
+position:sticky;
+top:0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 40px;
+background:#ffffffcc;
+backdrop-filter:blur(12px);
+border-bottom:1px solid var(--border);
+z-index:10;
+}
+
+nav strong{font-weight:600}
+
+nav a{
+color:var(--muted);
+margin-left:26px;
+font-size:14px;
+text-decoration:none;
+}
+
+nav a:hover{color:var(--accent)}
+
+.hero{
+padding:150px 20px 120px;
+text-align:center;
+max-width:900px;
+margin:auto;
+}
+
+.hero h1{
+font-size:64px;
+margin:0;
+letter-spacing:-1.5px;
+background:linear-gradient(90deg,var(--accent),var(--accent2));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+font-size:22px;
+color:var(--muted);
+margin-top:18px;
+}
+
+.hero-buttons{margin-top:38px}
+
+.hero-buttons a{
+background:linear-gradient(90deg,var(--accent),var(--accent2));
+color:white;
+padding:14px 24px;
+border-radius:12px;
+margin:8px;
+font-weight:600;
+text-decoration:none;
+display:inline-block;
+box-shadow:0 8px 18px rgba(0,0,0,.08);
+transition:.25s;
+}
+
+.hero-buttons a:hover{
+transform:translateY(-3px);
+box-shadow:0 14px 28px rgba(0,0,0,.12);
+}
+
+.metrics{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:26px;
+margin-top:60px;
+}
+
+.metric{
+background:var(--card);
+border:1px solid var(--border);
+padding:26px 28px;
+border-radius:16px;
+min-width:170px;
+box-shadow:0 6px 16px rgba(0,0,0,.04);
+}
+
+.metric h3{
+margin:0;
+font-size:34px;
+color:var(--accent);
+}
+
+.metric p{
+margin:6px 0 0;
+color:var(--muted);
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:90px 20px;
+}
+
+.section-title{
+font-size:30px;
+margin-bottom:32px;
+letter-spacing:-.5px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:24px;
+}
+
+.card{
+background:var(--card);
+border:1px solid var(--border);
+padding:28px;
+border-radius:18px;
+transition:.25s;
+box-shadow:0 6px 16px rgba(0,0,0,.04);
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 14px 32px rgba(0,0,0,.08);
+}
+
+.project-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:26px;
+}
+
+.badges{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin-top:14px;
+}
+
+.badge{
+background:#f1f5f9;
+border:1px solid var(--border);
+padding:6px 10px;
+border-radius:6px;
+font-size:12px;
+font-family:'JetBrains Mono',monospace;
+}
+
+.architecture{
+background:var(--card);
+border:1px solid var(--border);
+padding:44px;
+border-radius:18px;
+text-align:center;
+box-shadow:0 8px 24px rgba(0,0,0,.05);
+}
+
+footer{
+text-align:center;
+padding:60px 20px;
+color:var(--muted);
+border-top:1px solid var(--border);
+margin-top:80px;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<div><strong>Nicolas Thompson</strong></div>
+<div>
+<a href="#impact">Impact</a>
+<a href="#systems">Systems</a>
+<a href="#architecture">Architecture</a>
+<a href="#repos">Code</a>
+</div>
+</nav>
+
+
+<section class="hero">
+
+<h1>ML Platform Engineer</h1>
+
+<p>
+Designing event-driven telemetry pipelines, structured data platforms,
+and inference-ready backend infrastructure on AWS
+</p>
+
+<div class="hero-buttons">
+<a href="mailto:hello@nicolast.dev">Contact</a>
+<a href="https://github.com/nic-thompson" target="_blank">GitHub</a>
+<a href="https://linkedin.com/in/nicolas-giles-thompson" target="_blank">LinkedIn</a>
+</div>
+
+
+<div class="metrics">
+
+<div class="metric">
+<h3>20+</h3>
+<p>Years Engineering</p>
+</div>
+
+<div class="metric">
+<h3>AWS</h3>
+<p>Serverless Architectures</p>
+</div>
+
+<div class="metric">
+<h3>Telemetry</h3>
+<p>Event Pipelines</p>
+</div>
+
+<div class="metric">
+<h3>ML-Ready</h3>
+<p>Data Infrastructure</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="container">
+
+<p style="max-width:720px;margin:auto;color:#64748b;font-size:18px">
+
+Builds distributed telemetry ingestion systems, structured event pipelines,
+and analytics infrastructure supporting downstream machine-learning workflows
+and inference services on AWS.
+
+</p>
+
+</section>
+
+
+<div class="container">
+
+<section id="impact">
+
+<h2 class="section-title">Engineering Impact</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Telemetry Ingestion Pipelines</h3>
+<p>Designing services converting live device traffic into structured datasets supporting analytics and downstream ML workflows.</p>
+</div>
+
+<div class="card">
+<h3>Inference-Ready Backend Systems</h3>
+<p>Building APIs and storage layers enabling low-latency access to structured features and prediction-ready signals.</p>
+</div>
+
+<div class="card">
+<h3>Serverless Data Platforms</h3>
+<p>Delivering distributed processing pipelines using AWS Lambda, Step Functions, DynamoDB and S3.</p>
+</div>
+
+<div class="card">
+<h3>Observability & Reliability</h3>
+<p>Introducing structured logging, monitoring and alerting across asynchronous microservice architectures.</p>
+</div>
+
+</div>
+</section>
+
+
+<section id="systems">
+
+<h2 class="section-title">Representative Systems</h2>
+
+<div class="project-grid">
+
+<div class="card">
+<h3>Structured Telemetry Extraction Pipeline</h3>
+<p>Containerised SIP traffic listener reconstructing fragmented TCP streams via libpcap and producing ML-ready structured event datasets.</p>
+
+<div class="badges">
+<span class="badge">Python</span>
+<span class="badge">libpcap</span>
+<span class="badge">Docker</span>
+<span class="badge">Telemetry Pipelines</span>
+</div>
+</div>
+
+
+<div class="card">
+<h3>Event-Driven Analytics Data Platform</h3>
+<p>Asynchronous microservices processing operational telemetry streams into DynamoDB and S3 datasets supporting monitoring and downstream decision systems.</p>
+
+<div class="badges">
+<span class="badge">AWS Lambda</span>
+<span class="badge">DynamoDB</span>
+<span class="badge">S3</span>
+<span class="badge">Event Architecture</span>
+</div>
+</div>
+
+
+<div class="card">
+<h3>Serverless Data Access APIs</h3>
+<p>Lambda and API Gateway services exposing structured datasets to analytics, automation workflows and ML-ready downstream consumers.</p>
+
+<div class="badges">
+<span class="badge">Lambda</span>
+<span class="badge">API Gateway</span>
+<span class="badge">Python</span>
+<span class="badge">Serverless</span>
+</div>
+</div>
+
+</div>
+</section>
+
+
+<section id="architecture">
+
+<h2 class="section-title">Event-Driven ML Data Architecture</h2>
+
+<div class="architecture">
+
+<svg viewBox="0 0 900 300">
+
+<rect x="50" y="120" width="140" height="60" fill="#e2e8f0" rx="10"/>
+<text x="120" y="155" fill="#0f172a" text-anchor="middle">Data Sources</text>
+
+<rect x="250" y="120" width="170" height="60" fill="#e2e8f0" rx="10"/>
+<text x="335" y="155" fill="#0f172a" text-anchor="middle">Feature Pipelines</text>
+
+<rect x="470" y="120" width="150" height="60" fill="#e2e8f0" rx="10"/>
+<text x="545" y="155" fill="#0f172a" text-anchor="middle">Model Training</text>
+
+<rect x="670" y="120" width="150" height="60" fill="#e2e8f0" rx="10"/>
+<text x="745" y="155" fill="#0f172a" text-anchor="middle">Inference APIs</text>
+
+<line x1="190" y1="150" x2="250" y2="150" stroke="#6366f1" stroke-width="3"/>
+<line x1="420" y1="150" x2="470" y2="150" stroke="#6366f1" stroke-width="3"/>
+<line x1="620" y1="150" x2="670" y2="150" stroke="#6366f1" stroke-width="3"/>
+
+</svg>
+
+<p style="margin-top:26px;color:#64748b">
+Example architecture illustrating telemetry ingestion, feature pipelines,
+training workflows and inference-ready service layers.
+</p>
+
+</div>
+</section>
+
+
+<section id="repos">
+
+<h2 class="section-title">Selected Open Source</h2>
+
+<div id="repo-list" class="grid repo">Loading repositories…</div>
+
+</section>
+
+</div>
+
+
+<footer>
+© 2026 Nicolas Thompson • ML Platform Engineer
+</footer>
+
+
+<script>
+
+const username='nic-thompson';
+
+fetch(`https://api.github.com/users/${username}/repos?sort=updated`)
+.then(r=>r.json())
+.then(repos=>{
+const container=document.getElementById('repo-list');
+container.innerHTML='';
+repos.slice(0,6).forEach(repo=>{
+const el=document.createElement('div');
+el.className='card';
+el.innerHTML=`
+<h3>${repo.name}</h3>
+<p>${repo.description||'No description'}</p>
+<p style="color:#64748b;font-size:13px">★ ${repo.stargazers_count}</p>
+<a href="${repo.html_url}" target="_blank">View Repository →</a>
+`;
+container.appendChild(el);
+});
+});
+
+</script>
+
+</body>
+</html>
